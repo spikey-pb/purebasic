@@ -158,15 +158,27 @@
 
 @Description
   Erstellt ein neues Objekt '#NewEntity', welches eine exakte Kopie des
-  angegebenen Objekts '#Entity' ist.  Wenn @ReferenceLink "purebasic_objects" "#PB_Any" als
-  '#NewEntity' Parameter verwendet wird, dann wird die Nummer des neuen Entity als 'Ergebnis' zurückgegeben.
-@LineBreak
-@LineBreak
+  angegebenen Objekts '#Entity' ist.  
+
+@Parameter "#Entity"
+  Das zu kopierende Objekt.
+
+@Parameter "#NewEntity"
+  Das zu erstellende Objekt. 
+  @ReferenceLink "purebasic_objects" "#PB_Any" kann angegeben werden, um diese Nummer
+  automatisch zu generieren.
+
+@ReturnValue
   Ist das 'Ergebnis' gleich 0, ist das Kopieren des Entity fehlgeschlagen.
-@LineBreak
-@LineBreak
+  Wenn @ReferenceLink "purebasic_objects" "#PB_Any" als
+  '#NewEntity' Parameter verwendet wird, dann wird die Nummer des neuen Entity als 'Ergebnis' zurückgegeben.
+
+@Remarks
   Wurde das Objekt '#NewEntity' bereits erstellt, wird es automatisch
   freigegeben und durch das neue ersetzt.
+
+@SeeAlso
+  @@CreateEntity, @@FreeEntity
 
 @SupportedOS
 
@@ -269,7 +281,18 @@
 
 @Description
   Gibt die einmalige ID zurück, welche das angegebene '#Entity' im Betriebssystem identifiziert.
+
+@Parameter "#Entity"
+  Das zu verwendende Entity.
+  
+@ReturnValue
+  Gibt den Betriebssystem-@ReferenceLink "handles" "Handle" der Entität zurück.
+
+@Remarks
   Diese Funktion ist sehr nützlich, wenn eine andere Bibliothek einen Entity-Bezug benötigt.
+
+@SeeAlso
+  @@CreateEntity, @@FreeEntity
 
 @SupportedOS
 
@@ -726,7 +749,12 @@
 
 @Description
   Trennt (entfernt) ein zuvor hinzugefügtes Objekt von einem #Entity-Knochen (englisch "bone").
-  Die unterstützten Objekte sind die folgenden:
+  
+@Parameter "#Entity"
+  Das zu verwendende Entity.
+
+@Parameter "ObjectID"  
+  Das abzutrennende Objekt. Die unterstützten Objekte sind die folgenden:
 @FixedFont
   - Entity : verwenden Sie @@EntityID als 'ObjektID'.
   - Camera : verwenden Sie @@CameraID als 'ObjektID'.
@@ -734,6 +762,10 @@
   - BillboardGroup : verwenden Sie @@BillboardGroupID als 'ObjektID'.
   - ParticleEmitter: verwenden Sie @@ParticleEmitterID als 'ObjektID'.
 @EndFixedFont
+
+@NoReturnValue
+
+@Remarks
   Ein Objekt kann zu einem Entity-Knochen mittels @@AttachEntityObject hinzugefügt werden.
 
 @SupportedOS
@@ -1118,13 +1150,21 @@
 
 @Description
   Versteckt oder zeigt das angegebene Objekt '#Entity'.
-@LineBreak
-@LineBreak
+
+@Parameter "#Entity"
+  Das zu verwendende Entity.
+
+@Parameter "Status"
   'Status' kann einen der folgenden Werte annehmen:
 @FixedFont
   1: das #Entity wird versteckt
   0: das #Entity wird angezeigt
 @EndFixedFont
+
+@NoReturnValue 
+
+@SeeAlso
+  @@CreateEntity, @@FreeEntity
 
 @SupportedOS
 
@@ -1134,12 +1174,23 @@
 
 @Description
   Überprüft, ob das angegebene '#Entity' gültig und ein korrekt initialisiertes Entity ist.
-@LineBreak
-@LineBreak
-  Diese Funktion ist "kugelsicher" und kann mit jedem Wert verwendet werden. Wenn 'Ergebnis' ungleich Null ist, 
-  dann ist das Objekt gültig und initialisiert, andernfalls wird Null zurückgegeben. Dies ist der korrekte Weg, 
-  um sicherzugehen, dass ein Entity fertig zur Benutzung ist.
   
+@Parameter "#Entity"
+  Das zu verwendende Entity.
+  
+@ReturnValue
+  Wenn 'Ergebnis' ungleich Null ist, 
+  dann ist das Objekt gültig und initialisiert, andernfalls wird Null zurückgegeben. 
+  
+  
+@Remarks
+  Diese Funktion ist "kugelsicher" und kann mit jedem Wert verwendet werden. 
+  Dies ist der korrekte Weg, 
+  um sicherzugehen, dass ein Entity fertig zur Benutzung ist.
+
+@SeeAlso
+  @@CreateEntity, @@FreeEntity 
+
 @SupportedOS
 
 ;--------------------------------------------------------------------------------------------------------

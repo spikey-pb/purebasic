@@ -189,27 +189,22 @@
 @Function Resultat = CopyEntity(#Entity, #NouvelleEntity)
 
 @Description
-  Crée une copie d'une entité.
+  Crée une copie d'une entité. Tous ses attributs sont dupliqués.
   
 @Parameter "#Entity"
   L'entité à copier.
 
 @Parameter "#NouvelleEntity"  
   La copie.
-@LineBreak
-@LineBreak
   @ReferenceLink "purebasic_objects" "#PB_Any" 
   peut être utilisé pour générer 
-  automatiquement ce numéro.
-@LineBreak
-@LineBreak
-  Tous ses attributs sont dupliqués.  
+  automatiquement ce numéro.    
   
 @ReturnValue
   Renvoie une valeur non nulle en cas de 
   succès, zéro sinon.
-@LineBreak
-@LineBreak
+
+@Remarks
   Si la '#NouvelleEntity' était déjà créée, 
   elle est automatiquement supprimée et 
   remplacée par la nouvelle.
@@ -365,7 +360,9 @@ Si ce masque correspond au masque spécifié par
   L'entité à utiliser.  
 
 @ReturnValue
-  Renvoie le numéro de l'entité.
+  Renvoie le @ReferenceLink "handles" "handle" 
+  de l'entité (envoyé par le système 
+  d'exploitation).
   
 @Remarks
   Cette fonction est très utile quand une 
@@ -908,6 +905,7 @@ Si ce masque correspond au masque spécifié par
 
 @Description
   Attache un objet existant à un os d'une entité. 
+  Un objet peut être détaché d'une entité avec @@DetachEntityObject.
   
 @Parameter "#Entity"
   L'entité à utiliser.
@@ -963,8 +961,8 @@ Si ce masque correspond au masque spécifié par
   - Entity : Utilisation de @@EntityID en tant que 'ObjetID'.
   - Camera : Utilisation de @@CameraID en tant que 'ObjetID'.
   - Light  : Utilisation de @@LightID en tant que 'ObjetID'.
-  - BillboardGroup : Utilisation de @@BillboardGroupID en tant que 'ObjetID'.
-  - ParticleEmitter: Utilisation de @@ParticleEmitterID en tant que 'ObjetID'.
+  - BillboardGroup  : Utilisation de @@BillboardGroupID en tant que 'ObjetID'.
+  - ParticleEmitter : Utilisation de @@ParticleEmitterID en tant que 'ObjetID'.
 @EndFixedFont
   
 @NoReturnValue
@@ -1427,8 +1425,6 @@ Si ce masque correspond au masque spécifié par
   Cette fonction a été créée pour pouvoir 
   passer n'importe quelle valeur en paramètre 
   sans qu'il ne puisse y avoir de plantage.
-@LineBreak
-@LineBreak
   C'est la fonction idéale pour vérifier 
   qu'un objet est correctement initialisé.
   

@@ -156,14 +156,25 @@ saving CPU clocks.
 @Function Result = CopyEntity(#Entity, #NewEntity)
 
 @Description
+  Creates a #NewEntity which is the exact copy of the specified #Entity. 
+  
+@Parameter "#Entity"
+  The entity to copy.
 
-  Creates a #NewEntity which is the exact copy of the specified #Entity. If @ReferenceLink "purebasic_objects" "#PB_Any" is used 
-  as '#NewEntity' parameter, the new entity number will be returned as 'Result'.
-@LineBreak
-@LineBreak
-  If the 'Result' is 0, the entity copy has failed. If #NewEntity was already created, 
-  it will be automatically freed and replaced by the new one.
+@Parameter "#NewEntity"
+  The entity to create. @ReferenceLink "purebasic_objects" "#PB_Any" can be used 
+  to auto-generate this number.
 
+@ReturnValue
+  If the 'Result' is 0, the entity copy has failed. 
+  If @ReferenceLink "purebasic_objects" "#PB_Any" is used as '#Entity' parameter, the new entity number is returned. 
+  
+@Remarks
+  If #NewEntity was already created, it will be automatically freed and replaced by the new one.
+
+@SeeAlso
+  @@CreateEntity, @@FreeEntity
+  
 @SupportedOS
 
 ;--------------------------------------------------------------------------------------------------------
@@ -250,9 +261,20 @@ saving CPU clocks.
 
 @Description
   
-  Returns the unique ID which identifies the given '#Entity' in the operating system. This 
-  function is very useful when another library needs a entity reference. 
+  Returns the unique ID which identifies the given '#Entity' in the operating system.
 
+@Parameter "#Entity"
+  The entity to use.
+
+@ReturnValue
+  Returns the operating system @ReferenceLink "handles" "handle" of the entity.
+
+@Remarks
+  This function is very useful when another library needs an entity reference. 
+
+@SeeAlso
+  @@CreateEntity, @@FreeEntity
+  
 @SupportedOS
 
 ;--------------------------------------------------------------------------------------------------------
@@ -632,7 +654,8 @@ saving CPU clocks.
 @Function AttachEntityObject(#Entity, Bone$, ObjectID [, x, y, z, Pitch, Roll, Yaw])
 
 @Description
-  Attach an existing object to an entity bone. An object can be detached from an entity with @@DetachEntityObject.
+  Attach an existing object to an entity bone. 
+  An object can be detached from an entity with @@DetachEntityObject.
 
 @Parameter "#Entity"
   The entity to use.
@@ -675,16 +698,29 @@ saving CPU clocks.
 @Function DetachEntityObject(#Node, ObjectID)
 
 @Description
+  Detach a previously attached object from an #Entity bone.
 
-  Detach a previously attached object from an #Entity bone. The supported objects are the followings:
+@Parameter "#Entity"
+  The entity to use.
+
+@Parameter "ObjectID"  
+  The object to detach. It can be one of the following types:
+
 @FixedFont
   - Entity : use @@EntityID as 'ObjectID'.
   - Camera : use @@CameraID as 'ObjectID'.
-  - Light   : use @@LightID as 'ObjectID'.
+  - Light  : use @@LightID as 'ObjectID'.
   - BillboardGroup : use @@BillboardGroupID as 'ObjectID'.
   - ParticleEmitter: use @@ParticleEmitterID as 'ObjectID'.
 @EndFixedFont
+
+@NoReturnValue
+
+@Remarks
   An object can be attached to an entity bone with @@AttachEntityObject.
+
+@SeeAlso
+  @@AttachEntityObject
 
 @SupportedOS
 
@@ -710,7 +746,7 @@ saving CPU clocks.
 @EndFixedFont
 
 @OptionalParameter "InheritOrientation"
-  Tells if the bone orientation should inherit from the entity orientation. It can be one of the following value:
+  Tells if the bone orientation should inherit from the entity orientation. It can be one of the following values:
 @FixedFont
   @#True : the manual bone orientation inherit from the entity.
   @#False: the manual bone orientation doesn't take in account the entity orientation.
@@ -1059,15 +1095,22 @@ saving CPU clocks.
 @Function HideEntity(#Entity, State)
 
 @Description
-
   Hides or shows the specified #Entity. 
-@LineBreak
-@LineBreak
-  'State' can take the following values:
+
+@Parameter "#Entity"
+  The entity to use.
+  
+@Parameter "State"
+  The new state of the entity. The following values can be used:
 @FixedFont
   1: the #Entity is hidden
   0: the #Entity is shown
 @EndFixedFont
+
+@NoReturnValue 
+
+@SeeAlso
+  @@CreateEntity, @@FreeEntity
 
 @SupportedOS
 
@@ -1077,11 +1120,19 @@ saving CPU clocks.
 
 @Description
   Tests if the given #Entity is a valid and correctly initialized entity.
-@LineBreak
-@LineBreak
-  This function is bulletproof and can be used with any value. If the 'Result' is not zero then the object is valid and
-  initialized, else it returns zero. This is the correct way to ensure an entity is ready to use.
-  
+
+@Parameter "#Entity"
+  The entity to use.
+
+@ReturnValue
+  Returns non-zero if the entity is valid and initialized, else it returns zero. 
+
+@Remarks
+  This function is bulletproof and can be used with any value. This is the correct way to ensure an entity is ready to use.
+
+@SeeAlso
+  @@CreateEntity, @@FreeEntity 
+
 @SupportedOS
 
 ;--------------------------------------------------------------------------------------------------------
