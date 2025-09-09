@@ -58,7 +58,7 @@ IncludeFile "..\Common.pb"
 #PB_StatusBar_Center     = 4
 #PB_StatusBar_Right      = 8
 
-; MessageRequester flags
+; Non-common MessageRequester flags
 ;
 #PB_MessageRequester_Ok          = 0
 #PB_MessageRequester_YesNo       = 4
@@ -66,16 +66,6 @@ IncludeFile "..\Common.pb"
 #PB_MessageRequester_Info    = $40
 #PB_MessageRequester_Error   = $10
 #PB_MessageRequester_Warning = $30
-
-; MessageRequester return value
-#PB_MessageRequester_Yes    = 6
-#PB_MessageRequester_No     = 7
-#PB_MessageRequester_Cancel = 2
-
-
-#PB_Requester_MultiSelection = 1
-
-#PB_InputRequester_Password = 1
 
 #PB_FontRequester_Effects = 256 ; #CF_EFFECTS
 
@@ -214,41 +204,6 @@ IncludeFile "..\Common.pb"
 #PB_Date_Minimum  = 1  ; for Get/SetGadgetAttribute
 #PB_Date_Maximum  = 2
 
-; Common Flags for all Explorer[...]Gadgets:
-#PB_Explorer_NoMyDocuments       = $00000200
-#PB_Explorer_HiddenFiles         = $00000400
-
-; Flags for ExplorerTreeGadget and ExplorerViewGadget:
-#PB_Explorer_NoFiles             = $00000001
-#PB_Explorer_NoDriveRequester    = $00000010
-#PB_Explorer_AutoSort            = $00000040
-#PB_Explorer_BorderLess          = $00100000
-#PB_Explorer_AlwaysShowSelection = $01000000
-
-; ExplorerList only Flags:
-#PB_Explorer_NoParentFolder      = $00000002
-#PB_Explorer_NoFolders           = $00000004
-#PB_Explorer_NoDirectoryChange   = $00000008
-#PB_Explorer_NoSort              = $00000020
-#PB_Explorer_MultiSelect         = $00200000
-#PB_Explorer_GridLines           = $00400000
-#PB_Explorer_HeaderDragDrop      = $00800000
-#PB_Explorer_FullRowSelect       = $02000000
-
-; ExplorerTree only Flags:
-#PB_Explorer_NoLines             = $04000000
-#PB_Explorer_NoButtons           = $08000000
-
-; ExplorerCombo only Flags:
-#PB_Explorer_DrivesOnly          = $00000080
-#PB_Explorer_Editable            = $00000100
-
-; Return values for Explorer:
-#PB_Explorer_None                = $0
-#PB_Explorer_File                = $1
-#PB_Explorer_Directory           = $2
-#PB_Explorer_Selected            = $4
-
 ; Explorerlist standart columns:
 #PB_Explorer_Name                = "PB_Explorer_Column_Name"
 #PB_Explorer_Size                = "PB_Explorer_Column_Size"
@@ -258,19 +213,8 @@ IncludeFile "..\Common.pb"
 #PB_Explorer_Modified            = "PB_Explorer_Column_Modified"
 #PB_Explorer_Accessed            = "PB_Explorer_Column_Accessed"
 
-#PB_Explorer_ColumnWidth = 1
-
 #PB_ListView_MultiSelect = $800 ; #LBS_EXTENDEDSEL
 #PB_ListView_ClickSelect = $8   ; #LBS_MULTIPLESEL
-
-#PB_ListIcon_CheckBoxes     = 1
-#PB_ListIcon_MultiSelect    = 4
-#PB_ListIcon_GridLines      = $10000
-#PB_ListIcon_FullRowSelect  = $40000000
-#PB_ListIcon_HeaderDragDrop = $10000000
-#PB_ListIcon_AlwaysShowSelection = 8
-#PB_ListIcon_ThreeState     = 64 ; LVS_SHAREIMAGELISTS (re-used for this setting)
-
 
 #PB_MDI_BorderLess              = $00000001 ; Flags
 #PB_MDI_AutoSize                = $00000002
@@ -285,17 +229,6 @@ IncludeFile "..\Common.pb"
 
 #PB_MDI_Image     = 3 ; Attributes
 #PB_MDI_TileImage = 4
-
-; String flags
-;
-#PB_String_Password  = 32         ; ES_PASSWORD
-#PB_String_ReadOnly  = $800
-#PB_String_Numeric   = $2000
-#PB_String_LowerCase = 16
-#PB_String_UpperCase = 8
-#PB_String_BorderLess = $20000 ; reuse WS_GROUP
-#PB_String_AutoComplete = $10000000 ; reuse WS_VISIBLE
-#PB_String_AutoInsert = $40000000   ; reuse WS_CHILD
 
 #PB_Spin_ReadOnly = 1 ; Flags
 #PB_Spin_Numeric  = 2

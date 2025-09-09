@@ -346,6 +346,15 @@ Procedure.s Language(Group$, Name$)
     
   EndIf
   
+  CompilerIf #PB_Compiler_Debugger
+    If String$ =  "##### String not found! #####"
+      If Group = 0
+        Debug "[LANGUAGE] Group '" + Group$ + "' wasn't found."
+      EndIf
+      Debug "[LANGUAGE] A string with name '" + Name$ + "' wasn't found in group '" + Group$ + "'."
+    EndIf
+  CompilerEndIf
+  
   ProcedureReturn ReplaceString(String$, "%newline%", #NewLine, #PB_String_NoCase)
 EndProcedure
 
@@ -1106,7 +1115,7 @@ DataSection
   CompilerIf #SpiderBasic
     Data$ "WebBrowser",  "Web browser"
     Data$ "WebServerPort",  "Default web server port"
-    Data$ "JDK",  "JDK 11 path (JDK 12+ not supported)"
+    Data$ "JDK",  "JDK 17 path (JDK 18+ not supported)"
     Data$ "AppleTeamID",  "AppleTeam ID"
   CompilerEndIf
   
@@ -1455,7 +1464,7 @@ DataSection
     ; ===================================================
     
     Data$ "Settings",             "Settings"
-    Data$ "NoJDK",                "Path to JDK 11 needs to be set in general Preferences/Compiler to create an Android App."
+    Data$ "NoJDK",                "Path to JDK 17 needs to be set in general Preferences/Compiler to create an Android App."
     Data$ "InvalidJDK",           "Invalid specified JDK directory (needs to be a full JDK, not a JRE)."
     Data$ "InvalidPackageID",     "Invalid specified package id. It should respect the following syntax: domain.yourcompany.appname" + #CR$ + #CR$ +"Each field can only contain ASCII character (a-z, 0-9) and has to start with a lowercase letter character."
     Data$ "Name",                 "App name"
@@ -1658,6 +1667,7 @@ DataSection
   Data$ "ProceduresUpdate", "Trigger Update of Procedure & Variable Viewer"
   
   Data$ "AllreadyUsed",     "The shortcut you specified is already used by" ; DO NOT FIX TYPO: AllreadyUsed
+  Data$ "ReassignPrompt",   "Should the shortcut be reassigned?"
   Data$ "ExternalTool",     "External Tool"
   Data$ "Menu",             "Menu"
   Data$ "TabIntend",        "Indent/Unindent code Selection"
@@ -2238,6 +2248,18 @@ DataSection
   Data$ "Paste",                "Paste"
   Data$ "Duplicate",            "Duplicate"
   Data$ "AddItem",              "Add Item"
+  Data$ "AddButton",            "Add Button"
+  Data$ "AddToggle",            "Add Toggle Button"
+  Data$ "AddImage",             "Add Image"
+  Data$ "AddLabel",             "Add Label"
+  Data$ "AddSeparator",         "Add Separator"
+  Data$ "AddProgressBar",       "Add ProgressBar"
+  Data$ "DeleteToolbar",        "Delete Toolbar"
+  Data$ "DeleteToolbarItem",    "Delete Toolbar Item"
+  Data$ "DeleteStatusBar",      "Delete StatusBar"
+  Data$ "DeleteField",          "Delete Field"
+  Data$ "DeleteMenu",           "Delete Menu"
+  Data$ "DeleteMenuItem",       "Delete Menu Item"
   Data$ "EditItems",            "Edit Items"
   Data$ "EditColumns",          "Edit Columns"
   Data$ "AllForms",             "All Forms"
