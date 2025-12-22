@@ -362,12 +362,13 @@ Declare FD_PrepareTestCode(compile = 1)
 
 ; Version Warnings Preference Items
 EnumerationBinary 
+  #FDI_Warn_Initialized ; Prevents default being reapplied erroneously.
   #FDI_Warn_NotRecognized
   #FDI_Warn_DowngradeAlways
   #FDI_Warn_UpgradeBreaking
   #FDI_Warn_UpgradeAlways 
 EndEnumeration
-#FDI_Warn_Default = #FDI_Warn_NotRecognized | #FDI_Warn_DowngradeAlways | #FDI_Warn_UpgradeBreaking
+#FDI_Warn_Default = #FDI_Warn_Initialized | #FDI_Warn_NotRecognized | #FDI_Warn_DowngradeAlways | #FDI_Warn_UpgradeBreaking
 
 ; Gadget Types
 Enumeration

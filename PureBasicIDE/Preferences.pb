@@ -1243,6 +1243,7 @@ Procedure SavePreferences()
     WritePreferenceLong("EventProcedure",   FormEventProcedure)
     WritePreferenceLong("FormSkin",         FormSkin)
     WritePreferenceLong("FormSkinVersion",  FormSkinVersion)
+    FormVersionWarnings | #FDI_Warn_Initialized
     WritePreferenceLong("VersionWarnings",  FormVersionWarnings)
     
     ;- - EditHistory
@@ -2353,6 +2354,7 @@ Procedure ApplyPreferences()
       FormVersionWarnings & ~#FDI_Warn_UpgradeBreaking
       FormVersionWarnings | #FDI_Warn_UpgradeAlways
   EndSelect
+  FormVersionWarnings | #FDI_Warn_Initialized
   
   ; Reload specific form skin variables and fonts
   InitVars()
