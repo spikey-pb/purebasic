@@ -428,6 +428,7 @@ CompilerIf #PB_Compiler_OS <> #PB_OS_Web
   #PB_ImagePlugin_TIFF     = $46464954
   #PB_ImagePlugin_ICON     = $4E4F4349
   #PB_ImagePlugin_GIF      = $474946
+  #PB_ImagePlugin_WEBP     = $50424557
 
 CompilerEndIf
 
@@ -1250,6 +1251,12 @@ CompilerEndIf
 
 #PB_Sound_Millisecond = 1
 #PB_Sound_Frame       = 0
+
+#PB_SoundPlugin_WAV   = $564157
+#PB_SoundPlugin_FLAC  = $43414C46
+#PB_SoundPlugin_OGG   = $47474F
+#PB_SoundPlugin_MP3   = $33504D
+#PB_SoundPlugin_Opus  = $5355504F
 
 ; ToolBar library
 ;
