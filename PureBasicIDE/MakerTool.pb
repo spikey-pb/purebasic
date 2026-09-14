@@ -755,7 +755,7 @@ Procedure Maker_ChangeEnumType(Force.i = #PB_Ignore)
       Maker_ChangeSubType()
       
       PopListPosition(Gadgets())
-      
+      	
     Case #MAKER_ENUM_VariableViewer
       Maker_DisableTidy(#True, #True, #True, #True)
       Maker_DisableSubType(#True)
@@ -1279,14 +1279,17 @@ Procedure Maker_MakeGeneral(Preamble$, First$, FirstIndent.b, Each$, EachIndent.
       MakerOutput() + #MAKER_Prefix_ToDo + #DQUOTE$ + Trim(MakerEnumList()\String$, #DQUOTE$) + #DQUOTE$
     EndIf
     
-    ; Add template.
-    If *Maker\CurrentTemplateType <> #MAKER_TEMPLATE_None And GetGadgetText(#GADGET_Maker_EditTemplate) <> #Empty$
+    ; Add template, if not doing Template only and one is provided.
+    If *Maker\CurrentMakeType <> #MAKER_MAKE_TemplateOnly And
+       *Maker\CurrentTemplateType <> #MAKER_TEMPLATE_None And 
+       GetGadgetText(#GADGET_Maker_EditTemplate) <> #Empty$
       AddElement(MakerOutput())
       MakerOutput() = Maker_ReplacePlaceHolders(GetGadgetText(#GADGET_Maker_EditTemplate))
-    EndIf
+      
+      ; Add blank line.
+    	AddElement(MakerOutput())
     
-    ; Add blank line.
-    AddElement(MakerOutput())
+    EndIf
     
     First = #False
     
@@ -1565,9 +1568,8 @@ Procedure Maker_UpdateCode()
       Next MakerEnumList()
       
     Case #MAKER_MAKE_TemplateOnly
-      ; TODO I think this is incomplete - not using template tool?
-      Maker_MakeGeneral(#Empty$, #Empty$, 0, GetGadgetText(#GADGET_Maker_EditTemplate), 0, #Empty$, 0, #Empty$, 0)  
-      
+    	Maker_MakeGeneral(#Empty$, #Empty$, 0, GetGadgetText(#GADGET_Maker_EditTemplate), 0, #Empty$, 0, #Empty$, 0)  
+    	
   EndSelect
   
   ; Update the display.
