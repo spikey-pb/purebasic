@@ -1106,9 +1106,9 @@ DataSection
   Data$ "WarnNotRecognized",   "For an unrecognised file"
   Data$ "WarnDowngrade",       "For a version downgrade"
   Data$ "WarnUpgrade",         "For a version upgrade"
-  Data$ "Option_Always",       "Always warn"
-  Data$ "Option_Backward",     "Warn if backward compatibility is affected"
-  Data$ "Option_Never",        "Never warn"
+  Data$ "Option_Always",       "Always"
+  Data$ "Option_Backward",     "If backward compatibility is affected"
+  Data$ "Option_Never",        "Never"
   
   Data$ "Issues",             "Issues"
   Data$ "IssueNameShort",     "Name"
@@ -2112,9 +2112,6 @@ DataSection
   Data$ "MessageOlder",       "This file was created with an older version of the designer (%s%) and will be upgraded to the current version."
   Data$ "MessageBackward",    "This file was created with an older version of the designer (%s%).%newline%Backward compatibility may be affected if upgraded."
   Data$ "MessageNotDesign",   "This file does not appear to contain a form design.%newline%The content may not be imported properly."
-  Data$ "Option_Always",      "Always"
-  Data$ "Option_Backward",    "If backward compatibility is affected"
-  Data$ "Option_Never",       "Never"
   
   ;Data$ "_GROUP_",            "StatusWindow"
   ; ===================================================
